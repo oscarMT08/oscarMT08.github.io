@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Investigación sobre HTTP</title>
+</head>
+<body>
+
+  <h1>¿Qué es HTTP?</h1>
+  <p>HTTP (HyperText Transfer Protocol) es un protocolo de comunicación que permite la transferencia de información entre clientes y servidores a través de Internet. Es la base de la comunicación en la Web. Utiliza el protocolo TCP, generalmente a través del puerto 80, y está diseñado bajo el modelo cliente-servidor.</p>
+
+  <h1>Cliente y Servidor en HTTP</h1>
+
+  <h2>Cliente HTTP</h2>
+  <p>El cliente realiza peticiones al servidor. Generalmente es un navegador web, una app o una herramienta como curl o Postman. Solicita contenido como páginas, imágenes o envía formularios.</p>
+
+  <h2>Servidor HTTP</h2>
+  <p>El servidor recibe las solicitudes del cliente y responde con contenido o datos. Algunos ejemplos de servidores son Apache, Nginx o Microsoft IIS. Estos gestionan archivos web, bases de datos y aplicaciones.</p>
+
+  <h1>Funcionamiento de HTTP</h1>
+  <p>HTTP trabaja mediante un sistema de solicitud y respuesta. El cliente envía una solicitud al servidor, y este devuelve una respuesta que incluye un código de estado, encabezados y el contenido solicitado.</p>
+  <p><strong>Ejemplo de solicitud:</strong></p>
+  <pre>
+GET / HTTP/1.1
+Host: www.ejemplo.com
+  </pre>
+  <p><strong>Ejemplo de respuesta:</strong></p>
+  <pre>
+HTTP/1.1 200 OK
+Content-Type: text/html
+[Contenido HTML]
+  </pre>
+
+  <h1>Métodos HTTP</h1>
+  <ul>
+    <li><strong>GET:</strong> Solicita datos. Usado para cargar páginas web.</li>
+    <li><strong>POST:</strong> Envía datos al servidor. Ejemplo: enviar formularios.</li>
+    <li><strong>PUT:</strong> Reemplaza completamente un recurso.</li>
+    <li><strong>PATCH:</strong> Modifica parcialmente un recurso.</li>
+    <li><strong>DELETE:</strong> Elimina un recurso.</li>
+    <li><strong>HEAD:</strong> Solicita solo encabezados, sin el cuerpo.</li>
+    <li><strong>OPTIONS:</strong> Informa qué métodos están permitidos por el servidor.</li>
+  </ul>
+
+  <h1>Códigos de Estado HTTP</h1>
+
+  <h2>1xx – Informativos</h2>
+  <ul>
+    <li><strong>100 Continue:</strong> El cliente puede continuar con su solicitud.</li>
+  </ul>
+
+  <h2>2xx – Éxito</h2>
+  <ul>
+    <li><strong>200 OK:</strong> Solicitud exitosa.</li>
+    <li><strong>201 Created:</strong> Recurso creado correctamente.</li>
+  </ul>
+
+  <h2>3xx – Redirecciones</h2>
+  <ul>
+    <li><strong>301 Moved Permanently:</strong> El recurso fue movido de forma permanente.</li>
+    <li><strong>302 Found:</strong> Redirección temporal.</li>
+  </ul>
+
+  <h2>4xx – Errores del cliente</h2>
+  <ul>
+    <li><strong>400 Bad Request:</strong> Error en la sintaxis de la solicitud.</li>
+    <li><strong>401 Unauthorized:</strong> Requiere autenticación.</li>
+    <li><strong>403 Forbidden:</strong> Acceso denegado.</li>
+    <li><strong>404 Not Found:</strong> El recurso no fue encontrado.</li>
+    <li><strong>429 Too Many Requests:</strong> Demasiadas solicitudes.</li>
+  </ul>
+
+  <h2>5xx – Errores del servidor</h2>
+  <ul>
+    <li><strong>500 Internal Server Error:</strong> Error general del servidor.</li>
+    <li><strong>502 Bad Gateway:</strong> El servidor recibió una respuesta inválida.</li>
+    <li><strong>503 Service Unavailable:</strong> El servidor no está disponible temporalmente.</li>
+  </ul>
+<a href="tarea9.html">ir a tarea 9</a>
+</body>
+</html>
