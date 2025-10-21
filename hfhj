@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Puertos TCP y UDP - Investigación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      color: #005f99;
+    }
+
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <h1>1. ¿Qué son los puertos TCP y UDP?</h1>
+
+    <h2>1.1. Definición de puerto de red</h2>
+    <p>Un puerto de red es un identificador numérico que funciona junto a una dirección IP y un protocolo de transporte (TCP o UDP) para dirigir correctamente el tráfico de datos entre dispositivos. Imagina los puertos como “puertas” a través de las cuales las aplicaciones envían o reciben información en una computadora. Por ejemplo, cuando visitas una página web, te conectas a la IP del servidor web a través del puerto 80 (HTTP) o 443 (HTTPS).</p>
+
+    <h2>1.2. Función de los puertos</h2>
+    <p>Los puertos permiten que varios servicios o programas funcionen al mismo tiempo en un mismo equipo. Por ejemplo, un servidor web puede usar el puerto 80 para HTTP, el 21 para FTP, y el 25 para correo (SMTP), todos en paralelo. El sistema operativo se encarga de redirigir correctamente el tráfico a la aplicación correspondiente según el puerto usado.</p>
+
+    <h2>1.3. TCP: Protocolo orientado a la conexión</h2>
+    <p>TCP (Transmission Control Protocol) establece una conexión confiable entre emisor y receptor antes de comenzar a transmitir datos. Este protocolo:</p>
+    <ul>
+      <li>Verifica que todos los paquetes lleguen.</li>
+      <li>Reenvía paquetes perdidos.</li>
+      <li>Ordena los datos en caso de que lleguen desordenados.</li>
+      <li>Notifica errores si los hay.</li>
+    </ul>
+    <p>Es ideal para servicios donde la precisión y la integridad de los datos son esenciales, como navegación web, correo electrónico, banca en línea o descargas.</p>
+
+    <h2>1.4. UDP: Protocolo sin conexión</h2>
+    <p>UDP (User Datagram Protocol) es más simple y rápido que TCP. No establece conexión previa, ni garantiza entrega o el orden de los datos. Sin embargo, al reducir la sobrecarga del control de errores, permite enviar información de forma mucho más rápida. Se usa comúnmente en:</p>
+    <ul>
+      <li>Videollamadas.</li>
+      <li>Transmisiones en vivo (streaming).</li>
+      <li>Juegos en línea.</li>
+      <li>DNS (resolución de nombres).</li>
+    </ul>
+
+    <h2>1.5. Rango de puertos disponibles</h2>
+    <p>Los puertos están numerados del 0 al 65535, y se dividen en 3 rangos:</p>
+    <ul>
+      <li><strong>Puertos bien conocidos (0–1023):</strong> Usados por servicios estándar definidos por la IANA. Ej: HTTP (80), HTTPS (443), FTP (21), SSH (22), DNS (53).</li>
+      <li><strong>Puertos registrados (1024–49151):</strong> Asignados a aplicaciones específicas por los desarrolladores. Pueden ser usados por software de terceros. Ej: Microsoft SQL Server (1433), BitTorrent (6881).</li>
+      <li><strong>Puertos dinámicos/privados (49152–65535):</strong> No están asignados a ningún servicio específico. Son utilizados de forma temporal por los clientes para iniciar conexiones.</li>
+    </ul>
+
+    <h2>1.6. Importancia de los puertos en redes y seguridad</h2>
+    <p>Los puertos son esenciales para la comunicación entre dispositivos. Sin ellos, un equipo no sabría a qué aplicación debe entregar un paquete entrante.</p>
+    <p>En seguridad, conocer los puertos abiertos en una red es fundamental:</p>
+    <ul>
+      <li>Un puerto abierto innecesario puede ser una puerta de entrada para ciberataques.</li>
+      <li>Los firewalls y routers filtran el tráfico basado en puertos.</li>
+      <li>Herramientas como Nmap permiten escanear puertos y detectar servicios vulnerables.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>2. Puertos utilizados por protocolos de red comunes</h1>
+
+    <h2>2.1. HTTP</h2>
+    <p><strong>Puerto:</strong> TCP 80</p>
+    <p><strong>Función:</strong> Es el protocolo principal para acceder a páginas web.</p>
+    <p><strong>Detalles:</strong> No cifra los datos, por lo que la información puede ser interceptada si se transmite por redes inseguras.</p>
+
+    <h2>2.2. HTTPS</h2>
+    <p><strong>Puerto:</strong> TCP 443</p>
+    <p><strong>Función:</strong> Es la versión segura de HTTP.</p>
+    <p><strong>Detalles:</strong> Utiliza cifrado TLS/SSL para proteger los datos. Es esencial para proteger contraseñas, datos bancarios y comunicaciones privadas.</p>
+
+    <h2>2.3. SMTP</h2>
+    <p><strong>Puerto principal:</strong> TCP 25</p>
+    <p><strong>Otros puertos:</strong> 465 (SSL), 587 (TLS)</p>
+    <p><strong>Función:</strong> Se usa para enviar correos electrónicos desde el cliente hacia el servidor o entre servidores.</p>
+
+    <h2>2.4. POP3</h2>
+    <p><strong>Puerto:</strong> TCP 110</p>
+    <p><strong>Versión segura:</strong> TCP 995</p>
+    <p><strong>Función:</strong> Permite descargar correos y almacenarlos localmente, eliminándolos del servidor.</p>
+
+    <h2>2.5. IMAP</h2>
+    <p><strong>Puerto:</strong> TCP 143</p>
+    <p><strong>Versión segura:</strong> TCP 993</p>
+    <p><strong>Función:</strong> Permite gestionar correos directamente en el servidor desde varios dispositivos.</p>
+
+    <h2>2.6. MIME</h2>
+    <p><strong>Puerto:</strong> No aplica</p>
+    <p><strong>Función:</strong> Define cómo se formatean los correos con contenido multimedia.</p>
+
+    <h2>2.7. FTP</h2>
+    <p><strong>Puertos:</strong> TCP 21 (control), TCP 20 (datos)</p>
+    <p><strong>Función:</strong> Permite la transferencia de archivos entre un cliente y un servidor.</p>
+
+    <h2>2.8. FTPS</h2>
+    <p><strong>Puertos:</strong> TCP 990 (control), TCP 989 (datos)</p>
+    <p><strong>Función:</strong> Es FTP con cifrado para proteger datos y contraseñas.</p>
+
+    <h2>2.9. SFTP</h2>
+    <p><strong>Puerto:</strong> TCP 22</p>
+    <p><strong>Función:</strong> Transferencia segura de archivos basada en SSH.</p>
+
+    <h2>2.10. BitTorrent</h2>
+    <p><strong>Puertos:</strong> TCP 6881–6999 (puede variar)</p>
+    <p><strong>También usa:</strong> UDP para funciones como DHT</p>
+    <p><strong>Función:</strong> Protocolo P2P para compartir archivos entre múltiples usuarios.</p>
+
+    <h2>2.11. FastTrack</h2>
+    <p><strong>Puerto:</strong> TCP/UDP 1214</p>
+    <p><strong>Función:</strong> Fue utilizado por programas P2P como Kazaa.</p>
+
+    <h2>2.12. IRC</h2>
+    <p><strong>Puertos:</strong> TCP 6665–6669</p>
+    <p><strong>Versión segura:</strong> TCP 6697</p>
+    <p><strong>Función:</strong> Sistema de chat en tiempo real.</p>
+
+    <h2>2.13. XMPP</h2>
+    <p><strong>Puerto cliente-servidor:</strong> TCP 5222</p>
+    <p><strong>Puerto servidor-servidor:</strong> TCP 5269</p>
+    <p><strong>Función:</strong> Protocolo de mensajería instantánea con extensiones para presencia y multimedia.</p>
+
+    <h2>2.14. MTProto</h2>
+    <p><strong>Puerto principal:</strong> No tiene uno fijo, suele usar TCP 443</p>
+    <p><strong>Función:</strong> Protocolo de Telegram para asegurar privacidad y velocidad.</p>
+  </section>
+
+</body>
+</html>
